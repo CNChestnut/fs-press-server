@@ -6,22 +6,14 @@ const cors = require('cors');
 
 app.use(cors());
 
-app.get('/markdown', (req, res) => {
-    path = `./files/${req.query.file}.md`;
-    console.log(path);
-    fs.readFile(`./files/${req.query.file}.md`, 'utf8', (err, data) => {
+app.get('/', (req, res) => {
+    fs.readFile(`./files/${req.query.file}`, 'utf8', (err, data) => {
+        console.log(req.query.file);
         if (err) {
-            res.send(err)
-            return
-        };
-        res.send(data);
-    });
-});
-
-app.get('/json', (req, res) => {
-    fs.readFile(`./files/${req.query.file}.json`, 'utf8', (err, data) => {
-        if (err) {
-            res.send(err)
+            if (err.code === 'ENOENT') {
+                res.send({ "exist": false });
+                return
+            }
             return
         };
         res.send(data);
