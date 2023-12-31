@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
     fs.readFile(`./files/${req.query.file}`, 'utf8', (err, data) => {
         console.log(req.query.file);
         if (err) {
-            if (err.code === 'ENOENT') {
+            if (err.code == 'ENOENT') {
                 res.send({ "exist": false });
                 return
             }
