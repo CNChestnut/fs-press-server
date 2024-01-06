@@ -7,20 +7,28 @@ const server_config = require('./config/server.json');
 
 app.use(cors());
 
-app.get('/', (req, res) => {
+app.get('/:site', (req, res) => {
+    var path = './files';
+    if(req.params.site)
+    {  
+        if(server_config.multiSite){
+        path += `/${req.params.site}`;
+        }
+        else{
+            res.send({ "multiSite": false });
+        }
+    }
     if(req.query.language){
         if(server_config.i18n){
-        path = `./files/${req.query.language}/${req.query.file}`
+            path += `/${req.query.language}`;
         }
         else{
             res.send({ "i18n": false });
         }
     }
-    else{
-        path = `./files/${req.query.file}`
-    }
+    path += `/${req.query.file}`;
     fs.readFile(path, 'utf8', (err, data) => {
-        console.log(req.query);
+        console.log(path,req.query);
         if (err) {
             if (err.code == 'ENOENT') {
                 res.send({ "exist": false });

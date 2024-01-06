@@ -1,4 +1,5 @@
 {
     "port":62710,
-    "i18n":true
+    "i18n":true,
+    "multiSite":true
 }
