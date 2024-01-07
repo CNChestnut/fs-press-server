@@ -11,11 +11,11 @@ app.get('/:site', (req, res) => {
     var path = './files';
     if(req.params.site)
     {  
-        if(server_config.multiSite){
+        if(server_config.multi_site){
         path += `/${req.params.site}`;
         }
         else{
-            res.send({ "multiSite": false });
+            res.send({ "multi_site": false });
         }
     }
     if(req.query.language){
@@ -28,7 +28,7 @@ app.get('/:site', (req, res) => {
     }
     path += `/${req.query.file}`;
     fs.readFile(path, 'utf8', (err, data) => {
-        console.log({"data":Date(),"path":path,"":req.query});
+        console.log({"date":Date(),"path":path,"":req.query});
         if (err) {
             if (err.code == 'ENOENT') {
                 res.send({ "exist": false });
