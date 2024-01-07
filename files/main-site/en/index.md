@@ -1,6 +1,4 @@
 
 # openNUT FS Press
 
-This is homepage in English.
-
-[About](./about/)
+Deployment was successful, please visit [openNUT FS Press official website](https://fs-press.sharpdotnut.top) for instructions.

@@ -28,7 +28,7 @@ app.get('/:site', (req, res) => {
     }
     path += `/${req.query.file}`;
     fs.readFile(path, 'utf8', (err, data) => {
-        console.log(path,req.query);
+        console.log({"data":Date(),"path":path,"":req.query});
         if (err) {
             if (err.code == 'ENOENT') {
                 res.send({ "exist": false });

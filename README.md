@@ -3,8 +3,18 @@
 
 这是 openNUT FS Press 的后端程序
 
-版本:`1.2.0`
+版本 : `1.2.1`
 
-兼容性版本:`2.0.0`
+前后端兼容性版本 : `2.1.0`
 
-输入 `npm run run` 即可启动服务，默认位于 `62710` 端口。
+使用
+```bash
+npm run run #或 node main.js
+```
+启动服务，默认位于 `62710` 端口。
+
+## 文档
+
+- [文档源文件](https://github.com/CNChestnut/FS-Press-website-content)
+
+- [文档站](https://fs-press.sharpdotnut.top)

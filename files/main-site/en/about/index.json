@@ -1,7 +1,0 @@
-{
-    "exist": true,
-    "title": {
-        "text": "You can customize the title through a JSON configuration file",
-        "site_title":false
-    }
-}
